@@ -3,7 +3,6 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const UserModel = require("../models/User.model");
 
-
 //signup
 router.post('/signup', (req, res) => {
   const {username, email, password } = req.body;
@@ -30,7 +29,6 @@ router.post('/signup', (req, res) => {
         }
       })
 });
-
 //login
 router.post('/login', (req, res) => {
   const {email, password} = req.body;
@@ -75,3 +73,24 @@ router.post('/logout', (req, res) => {
   req.session.destroy();
   res.status(204).json({});
 })
+
+// middleware loggedIn
+const isLoggedIn = (req, res, next) => {  
+  if (req.session.loggedInUser) {
+      next()
+  }
+  else {
+      res.status(401).json({
+          message: 'Unauthorized user',
+          code: 401,
+      })
+  };
+};
+
+// THIS IS A PROTECTED ROUTE
+// will handle all get requests to http:localhost:5005/api/user
+router.get("/user", isLoggedIn, (req, res, next) => {
+  res.status(200).json(req.session.loggedInUser);
+});
+
+module.exports = router;
