@@ -9,10 +9,14 @@ let userSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
-  userType: {
+  },
+  usertype: {
     type: String,
     enum: ['Student', 'Teacher']
+  },
+  lessons: {
+    type: Schema.Types.ObjectId,
+    ref: 'lessons'
   }
 });
 
