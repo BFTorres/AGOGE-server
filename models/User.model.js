@@ -13,6 +13,7 @@ let userSchema = new Schema({
   usertype: {
     type: String,
     enum: ['Student', 'Teacher']
+    //Student=User, Teacher=Admin
   },
   lessons: {
     type: Schema.Types.ObjectId,

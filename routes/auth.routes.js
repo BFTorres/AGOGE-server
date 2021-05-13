@@ -2,14 +2,15 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const UserModel = require("../models/User.model");
+//!back log cloudinary for student profile
 
 //signup
 router.post('/signup', (req, res) => {
-  const {username, email, password } = req.body;
-  console.log(username, email, password);
+  const {username, email, password, usertype } = req.body;
+  console.log(username, email, password, usertype);
     let salt = bcrypt.genSaltSync(10);
     let hash = bcrypt.hashSync(password, salt);
-    UserModel.create({name: username, email, passwordHash: hash})
+    UserModel.create({name: username, email, usertype, passwordHash: hash})
       .then((user) => {
         user.passwordHash = "***";
         res.status(200).json(user);
@@ -46,8 +47,9 @@ router.post('/login', (req, res) => {
             }
             //if passwords do not match
             else {
+              console.log('naaaah!')
                 res.status(500).json({
-                    error: 'Passwords don\'t match',
+                    error: 'Password not correct',
                 })
               return; 
             }
