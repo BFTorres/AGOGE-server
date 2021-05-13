@@ -10,3 +10,5 @@ const notesSchema = new Schema(
 );
 
 const Notes = model("Notes", notesSchema);
+
+module.exports = Notes;

@@ -1,4 +1,4 @@
-const { Schemal, model } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const lessonSchema = new Schema ({
   title: String,
@@ -8,7 +8,7 @@ const lessonSchema = new Schema ({
     type: Schema.Types.ObjectId,
     ref: 'User'
   }*/
-})
+});
 
 const Lesson = model("Lesson", lessonSchema);
 

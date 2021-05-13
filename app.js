@@ -5,7 +5,7 @@ require('dotenv/config');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 // cookies
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 const User = require('./models/User.model');
 
 
@@ -34,11 +34,11 @@ app.use('/api', allRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/api", authRoutes);
 
-const authRoutes = require("./routes/app.routes");
-app.use("/api", appRoutes);
 
-const authRoutes = require("./routes/stdportal.routes");
-app.use("/api", stdPortal);
+const lessonRoutes = require("./routes/lesson.routes")
+app.use("/api", lessonRoutes)
+/*const authRoutes = require("./routes/stdportal.routes");
+app.use("/api", stdPortal);*/
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);

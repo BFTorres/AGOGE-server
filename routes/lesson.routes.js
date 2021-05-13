@@ -17,7 +17,7 @@ router.get("/lessons", (req, res) => {
     });
 });
 
-//! router.post("/lessons/")
+//! router.post("/lessons/") insert/add lessons
 
 
 //! Details?

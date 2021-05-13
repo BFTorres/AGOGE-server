@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const UserModel = require("../models/User.model");
+const LessonModel = require("../models/Lesson.model");
+const NotesModel = require("../models/Notes.model");
 //!back log cloudinary for student profile
 
 //signup
