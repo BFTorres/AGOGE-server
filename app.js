@@ -11,6 +11,9 @@ const User = require('./models/User.model');
 
 
 
+
+
+
 // ℹ️ Connects to the database
 require('./db');
 
@@ -27,6 +30,15 @@ require('./config')(app);
 // Contrary to the views version, all routes are controled from the routes/index.js
 const allRoutes = require('./routes');
 app.use('/api', allRoutes);
+
+const authRoutes = require("./routes/auth.routes");
+app.use("/api", authRoutes);
+
+const authRoutes = require("./routes/app.routes");
+app.use("/api", appRoutes);
+
+const authRoutes = require("./routes/stdportal.routes");
+app.use("/api", stdPortal);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
