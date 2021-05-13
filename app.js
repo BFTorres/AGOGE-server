@@ -1,6 +1,15 @@
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
 require('dotenv/config');
+//auth
+const session = require('express-session');
+const bcrypt = require('bcrypt');
+// cookies
+const MongoStore = require('connect-mongo')(session);
+const User = require('./models/User.model');
+
+
+
 
 // ℹ️ Connects to the database
 require('./db');
