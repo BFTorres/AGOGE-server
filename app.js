@@ -1,27 +1,36 @@
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
 require('dotenv/config');
-//auth
-const session = require('express-session');
-const bcrypt = require('bcrypt');
-// cookies
-const MongoStore = require('connect-mongo');
-const User = require('./models/User.model');
-
-
-
-
-
-
 
 // ℹ️ Connects to the database
 require('./db');
-
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require('express');
 
 const app = express();
+//auth
+const session = require('express-session');
+const bcrypt = require('bcrypt');
+// cookies
+const MongoStore = require('connect-mongo');
+
+/*app.use(session({
+  secret: 'NotMyAge',
+  saveUninitialized: false, 
+  resave: false, 
+  cookie: {
+    maxAge: 1000*60*60*24// is in milliseconds.  expiring in 1 day
+  },
+  store: new MongoStore({
+    mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/AGOGE",
+    ttl: 60*60*24, // is in seconds. expiring in 1 day
+  })
+}));*/
+
+
+
+
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
@@ -34,9 +43,14 @@ app.use('/api', allRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/api", authRoutes);
 
-
 const lessonRoutes = require("./routes/lesson.routes")
 app.use("/api", lessonRoutes)
+
+//! const notesRoutes = require
+
+
+
+
 /*const authRoutes = require("./routes/stdportal.routes");
 app.use("/api", stdPortal);*/
 

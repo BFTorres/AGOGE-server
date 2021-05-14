@@ -2,19 +2,19 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const UserModel = require("../models/User.model");
-const LessonModel = require("../models/Lesson.model");
-const NotesModel = require("../models/Notes.model");
+//const LessonModel = require("../models/Lesson.model");
+//const NotesModel = require("../models/Notes.model");
 //!back log cloudinary for student profile
 
 //! email needed?
 
 //signup
 router.post('/signup', (req, res) => {
-  const {username, email, password, usertype } = req.body;
-  console.log(username, email, password, usertype);
+  const {username, password, usertype } = req.body;
+  console.log(username, password, usertype);
     let salt = bcrypt.genSaltSync(10);
     let hash = bcrypt.hashSync(password, salt);
-    UserModel.create({name: username, email, usertype, passwordHash: hash})
+    UserModel.create({name: username, usertype, password: hash})
       .then((user) => {
         user.passwordHash = "***";
         res.status(200).json(user);
@@ -36,7 +36,7 @@ router.post('/signup', (req, res) => {
 });
 //login
 router.post('/login', (req, res) => {
-  const {email, password} = req.body;
+  const {username, password} = req.body;
   UserModel.findOne({email})
   .then((userData) => {
        //check if passwords match
