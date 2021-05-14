@@ -16,8 +16,35 @@ router.get("/lessons", (req, res) => {
       });
     });
 });
-
 //! router.post("/lessons/") insert/add lessons
+router.post('/create', (req, res) => {
+  const {title, description} = req.body;
+  LessonsModel.create({title: title, description: description})
+    .then((response) => {
+      res.status(200).json(response)
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: 'Something went wrong',
+        message: err
+     })
+    })
+})
+// PATCH requests to http:localhost:5005/api/lessons/:id
+router.patch('/lessons/:id', (req,res) => {
+  let id = req.params.id
+  const {title, description} = req.body;
+  LessonsModel.findByIdAndUpdate(id, {$set: {title: title, description: description}}, {new: true})
+    .then((response) => {
+      res.status(200).json(response)
+    })
+      .catch((err) => {
+        res.status(500).json({
+          error: 'Something went wrong',
+          message: err
+        })
+      })
+})
 
 
 //! Details?

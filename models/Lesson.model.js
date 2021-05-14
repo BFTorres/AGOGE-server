@@ -1,8 +1,8 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
 
-const lessonSchema = new Schema ({
+let LessonSchema = new mongoose.Schema ({
   title: String,
-  description: String, //!!!
+  description: String //!!!
   //! module?, differentiation between classes etc.?
   /*asignedBy: {
     type: Schema.Types.ObjectId,
@@ -10,6 +10,6 @@ const lessonSchema = new Schema ({
   }*/
 });
 
-const Lesson = model("Lesson", lessonSchema);
+let LessonModel = mongoose.model("lessons", LessonSchema);
 
-module.exports = Lesson;
+module.exports = LessonModel;
