@@ -18,8 +18,8 @@ router.get("/lessons", (req, res) => {
 });
 //! router.post("/lessons/") insert/add lessons
 router.post('/create', (req, res) => {
-  const {title, description} = req.body;
-  LessonsModel.create({title: title, description: description})
+  const {title, description, image} = req.body;
+  LessonsModel.create({title, description, imageUrl: image})
     .then((response) => {
       res.status(200).json(response)
     })
@@ -30,6 +30,22 @@ router.post('/create', (req, res) => {
      })
     })
 })
+
+router.get('/lessons/:lessonsId', (req, res) => {
+  LessonsModel.findById(req.params.lessonsId)
+   .then((response) => {
+        res.status(200).json(response)
+   })
+   .catch((err) => {
+        res.status(500).json({
+             error: 'Something went wrong',
+             message: err
+        })
+   }) 
+})
+//! DELETE
+
+
 // PATCH requests to http:localhost:5005/api/lessons/:id
 router.patch('/lessons/:id', (req,res) => {
   let id = req.params.id

@@ -19,10 +19,10 @@ let userSchema = new Schema(
     type: Schema.Types.ObjectId,
     ref: 'Notes'
   }*/
-  /*lessons: [{
-    type: Schema.Types.ObjectId,
-    ref: 'lessons'
-  }]*/
+  lessons: Array,
+    type: { type: String,
+    default: 'user' }
+  
 });
 
 const UserModel = model("user", userSchema);
