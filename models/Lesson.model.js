@@ -1,15 +1,18 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
-let LessonSchema = new mongoose.Schema ({
+let lessonSchema = new Schema (
+  {
   title: String,
-  description: String //!!!
+  description: String, //!!!
   //! module?, differentiation between classes etc.?
   /*asignedBy: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'user'
   }*/
-});
+  // image
+}
+);
 
-let LessonModel = mongoose.model("lessons", LessonSchema);
+const LessonsModel = model("lessons", lessonSchema);
 
-module.exports = LessonModel;
+module.exports = LessonsModel;

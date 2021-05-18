@@ -11,11 +11,12 @@ const express = require('express');
 const app = express();
 //auth
 const session = require('express-session');
+
 const bcrypt = require('bcrypt');
 // cookies
 const MongoStore = require('connect-mongo');
 
-/*app.use(session({
+app.use(session({
   secret: 'NotMyAge',
   saveUninitialized: false, 
   resave: false, 
@@ -23,10 +24,10 @@ const MongoStore = require('connect-mongo');
     maxAge: 1000*60*60*24// is in milliseconds.  expiring in 1 day
   },
   store: new MongoStore({
-    mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/AGOGE",
+    mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/agoge-app",
     ttl: 60*60*24, // is in seconds. expiring in 1 day
   })
-}));*/
+}));
 
 
 
@@ -34,6 +35,7 @@ const MongoStore = require('connect-mongo');
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
+
 
 // 👇 Start handling routes here
 // Contrary to the views version, all routes are controled from the routes/index.js

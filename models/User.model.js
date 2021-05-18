@@ -1,13 +1,12 @@
 const { Schema, model } = require("mongoose");
 
-let UserSchema = new Schema(
+let userSchema = new Schema(
   {
   username: {
     type: String,
-    required: true,
     unique: true
   },
-  password: {
+  passwordHash: { // passwordHash: String,
     type: String,
     required: true
   },
@@ -16,12 +15,16 @@ let UserSchema = new Schema(
     enum: ['Student', 'Teacher']
     //Student=User, Teacher=Admin
   },
-  lessons: {
+  /*notes: {
+    type: Schema.Types.ObjectId,
+    ref: 'Notes'
+  }*/
+  /*lessons: [{
     type: Schema.Types.ObjectId,
     ref: 'lessons'
-  }
+  }]*/
 });
 
-let UserModel = model("user", UserSchema);
+const UserModel = model("user", userSchema);
 
-module.exports = UserModel;
+module.exports = UserModel
