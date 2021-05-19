@@ -16,20 +16,7 @@ router.get("/lessons", (req, res) => {
       });
     });
 });
-//! router.post("/lessons/") insert/add lessons
-router.post('/create', (req, res) => {
-  const {title, description, image} = req.body;
-  LessonsModel.create({title, description, imageUrl: image})
-    .then((response) => {
-      res.status(200).json(response)
-    })
-    .catch((err) => {
-      res.status(500).json({
-        error: 'Something went wrong',
-        message: err
-     })
-    })
-})
+
 
 router.get('/lessons/:lessonsId', (req, res) => {
   LessonsModel.findById(req.params.lessonsId)
@@ -60,6 +47,30 @@ router.patch('/lessons/:id', (req,res) => {
           message: err
         })
       })
+})
+
+//! router.post("/lessons/") insert/add lessons
+router.post('/addlessons', (req, res) => {
+  const {title, description, image} = req.body;
+
+  if (!title || !location || !size) {
+    res.status(500)
+      .json({
+        message: 'Please fill all the fields'
+      })
+    return
+  }
+  
+  LessonsModel.create({title, description, imageUrl: image})
+    .then((response) => {
+      res.status(200).json(response)
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: 'Something went wrong',
+        message: err
+     })
+    })
 })
 
 

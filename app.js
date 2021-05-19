@@ -29,6 +29,8 @@ app.use(session({
   })
 }));
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
@@ -45,8 +47,15 @@ app.use("/api", authRoutes);
 const lessonRoutes = require("./routes/lesson.routes")
 app.use("/api", lessonRoutes)
 
+const cloudinaryRoutes = require('./routes/cloudinary.routes')
+app.use('/api', cloudinaryRoutes)
+
 //! const notesRoutes = require
 
+app.use((req, res, next) => {
+	// If no routes match, send them the React HTML.
+	res.sendFile(__dirname + "/public/index.html");
+});
 
 
 

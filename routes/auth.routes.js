@@ -83,14 +83,14 @@ const isLoggedIn = (req, res, next) => {
 router.post('/login', (req, res) => {
   const {username, password} = req.body;
 
- /*
+ 
   if (!username || !password) {
     res.status(500).json({
       error: "Please enter username and password",
     });
     return;
   }
-*/
+
   //logout
 
 
@@ -132,7 +132,7 @@ router.post('/login', (req, res) => {
 
 router.post('/logout', (req, res) => {
   req.session.destroy();
-  res.status(204).json({});
+  res.status(204).json({message: "successfully logged out"});
 })
 
 
