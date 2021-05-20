@@ -1,7 +1,9 @@
-const router = require("express").Router();
+//const router = require("express").Router();
+const express = require('express');
+const router  = express.Router();
 const uploader = require('../config/cloudinary.config');
 
-router.post('/addlessons', uploader.single("imageUrl"), (req, res, next) => {
+router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
   // the uploader.single() callback will send the file to cloudinary and get you and obj with the url in return
   console.log('file is: ', req.file)
   
@@ -13,7 +15,9 @@ router.post('/addlessons', uploader.single("imageUrl"), (req, res, next) => {
   
   // You will get the image url in 'req.file.path'
   // Your code to store your url in your database should be here
-  res.status(200).json({image: req.file.path})
+  res.status(200).json({
+    image: req.file.path
+  })
 })
 
 module.exports = router;

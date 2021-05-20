@@ -48,7 +48,7 @@ const lessonRoutes = require("./routes/lesson.routes")
 app.use("/api", lessonRoutes)
 
 const cloudinaryRoutes = require('./routes/cloudinary.routes')
-app.use('/api', cloudinaryRoutes)
+app.use("/api", cloudinaryRoutes);
 
 //! const notesRoutes = require
 

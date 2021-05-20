@@ -1,8 +1,7 @@
 const router = require('express').Router();
-const bcrypt = require('bcryptjs');
 const UserModel = require("../models/User.model");
 const LessonsModel = require("../models/Lesson.model");
-const NotesModel = require ("../models/Notes.model")
+
 
 router.get("/lessons", (req, res) => {
   LessonsModel.find()
@@ -34,7 +33,7 @@ router.get('/lessons/:lessonsId', (req, res) => {
 
 
 // PATCH requests to http:localhost:5005/api/lessons/:id
-router.patch('/lessons/:id', (req,res) => {
+router.patch('/lessons/:lessonsId', (req,res) => {
   let id = req.params.id
   const {title, description} = req.body;
   LessonsModel.findByIdAndUpdate(id, {$set: {title: title, description: description}}, {new: true})
@@ -50,18 +49,17 @@ router.patch('/lessons/:id', (req,res) => {
 })
 
 //! router.post("/lessons/") insert/add lessons
-router.post('/addlessons', (req, res) => {
+router.post('/create', (req, res) => {
   const {title, description, image} = req.body;
 
-  if (!title || !location || !size) {
+ if (!title || !description || !image) {
     res.status(500)
       .json({
         message: 'Please fill all the fields'
       })
     return
   }
-  
-  LessonsModel.create({title, description, imageUrl: image})
+  LessonsModel.create({title, description, image})
     .then((response) => {
       res.status(200).json(response)
     })
@@ -73,6 +71,18 @@ router.post('/addlessons', (req, res) => {
     })
 })
 
+router.delete('/lessons/:id', (req, res) => {
+  LessonsModel.findByIdAndDelete(req.params.id)
+        .then((response) => {
+             res.status(200).json(response)
+        })
+        .catch((err) => {
+             res.status(500).json({
+                  error: 'Something went wrong',
+                  message: err
+             })
+        })  
+})
 
 //! Details?
 
