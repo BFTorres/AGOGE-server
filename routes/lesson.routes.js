@@ -5,6 +5,8 @@ const LessonsModel = require("../models/Lesson.model");
 
 router.get("/lessons", (req, res) => {
   LessonsModel.find()
+  //! asign
+    .populate('userId')
     .then((lessons) => {
       res.status(200).json(lessons);
     })
@@ -19,8 +21,9 @@ router.get("/lessons", (req, res) => {
 
 router.get('/lessons/:lessonsId', (req, res) => {
   LessonsModel.findById(req.params.lessonsId)
-   .then((response) => {
-        res.status(200).json(response)
+   .then((lessons) => {
+     console.log(lessons)
+        res.status(200).json(lessons)
    })
    .catch((err) => {
         res.status(500).json({
@@ -34,11 +37,11 @@ router.get('/lessons/:lessonsId', (req, res) => {
 
 // PATCH requests to http:localhost:5005/api/lessons/:id
 router.patch('/lessons/:lessonsId', (req,res) => {
-  let id = req.params.id
-  const {title, description} = req.body;
-  LessonsModel.findByIdAndUpdate(id, {$set: {title: title, description: description}}, {new: true})
-    .then((response) => {
-      res.status(200).json(response)
+  let lessonsId = req.params.lessonsId
+  const {title, description, image} = req.body;
+  LessonsModel.findByIdAndUpdate(lessonsId, {$set: {title: title, description: description, image: image}}, {new: true})
+    .then((lessons) => {
+      res.status(200).json(lessons)
     })
       .catch((err) => {
         res.status(500).json({
@@ -59,7 +62,13 @@ router.post('/create', (req, res) => {
       })
     return
   }
-  LessonsModel.create({title, description, image})
+  LessonsModel.create({
+    title, 
+    description, 
+    image,
+    //! asign
+    //userId: Schema.Types.ObjectId,
+  })
     .then((response) => {
       res.status(200).json(response)
     })
@@ -69,6 +78,22 @@ router.post('/create', (req, res) => {
         message: err
      })
     })
+})
+
+router.get('/lessons/:userId', (req, res, next) => {
+  const { userId } = req.params;
+
+  LessonsModel.find({ userId })
+    .populate("userId")
+    .then((lessons) => {
+      res.status(200).json(lessons);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: 'Something went wrong when finding venues owner',
+        message: err
+      })
+    });
 })
 
 router.delete('/lessons/:id', (req, res) => {
@@ -84,8 +109,5 @@ router.delete('/lessons/:id', (req, res) => {
         })  
 })
 
-//! Details?
-
-//! Edit and Delete?
 
 module.exports = router;

@@ -15,13 +15,12 @@ let userSchema = new Schema(
     enum: ['Student', 'Teacher']
     //Student=User, Teacher=Admin
   },
-  /*notes: {
+  
+  lessons: [{ 
     type: Schema.Types.ObjectId,
-    ref: 'Notes'
-  }*/
-  lessons: Array,
-    type: { type: String,
-    default: 'user' }
+    ref: 'lessons' }] ,
+    
+    // asignBy - asignTo
   
 });
 
