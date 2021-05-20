@@ -18,9 +18,9 @@ let userSchema = new Schema(
   
   lessons: [{ 
     type: Schema.Types.ObjectId,
-    ref: 'lessons' }] ,
+    ref: 'lessons' }],
     
-    // asignBy - asignTo
+   
   
 });
 

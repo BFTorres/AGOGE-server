@@ -21,6 +21,7 @@ router.get("/lessons", (req, res) => {
 
 router.get('/lessons/:lessonsId', (req, res) => {
   LessonsModel.findById(req.params.lessonsId)
+    .populate('userId')
    .then((lessons) => {
      console.log(lessons)
         res.status(200).json(lessons)
@@ -53,7 +54,7 @@ router.patch('/lessons/:lessonsId', (req,res) => {
 
 //! router.post("/lessons/") insert/add lessons
 router.post('/create', (req, res) => {
-  const {title, description, image} = req.body;
+  const {title, description, image, userId} = req.body;
 
  if (!title || !description || !image) {
     res.status(500)
@@ -66,8 +67,8 @@ router.post('/create', (req, res) => {
     title, 
     description, 
     image,
-    //! asign
-    //userId: Schema.Types.ObjectId,
+    userId: req.session.loggedInUser._id//! asign
+    
   })
     .then((response) => {
       res.status(200).json(response)
