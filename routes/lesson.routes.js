@@ -18,6 +18,31 @@ router.get("/lessons", (req, res) => {
     });
 });
 
+/*
+//! asign3
+router.post("/allstudents", userType, (req, res) => {
+  const { allstudents } = req.params
+  let user = req.session.loggedInUser; //!session
+  if (user && user.userType == "Student") {
+    student = true;
+    next()
+  } 
+  UserModel.findByIdAndUpdate(id, { status })
+    .populate(allstudents)
+    .then((response) => {
+      res.status(200).json(response)
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: 'Something went wrong',
+        message: err
+     })
+    })
+})
+*/
+
+
+
 
 router.get('/lessons/:lessonsId', (req, res) => {
   LessonsModel.findById(req.params.lessonsId)
