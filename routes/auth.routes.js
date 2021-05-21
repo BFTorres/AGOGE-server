@@ -6,7 +6,7 @@ const UserModel = require("../models/User.model");
 //const NotesModel = require("../models/Notes.model");
 //!back log cloudinary for student profile
 
-//! email needed?
+
 
 //signup
 router.post('/signup', (req, res) => {

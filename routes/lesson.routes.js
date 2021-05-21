@@ -6,7 +6,6 @@ const LessonsModel = require("../models/Lesson.model");
 router.get("/lessons", (req, res) => {
   LessonsModel.find()
   //! asign
-    .populate('userId')
     .then((lessons) => {
       res.status(200).json(lessons);
     })
@@ -46,7 +45,6 @@ router.post("/allstudents", userType, (req, res) => {
 
 router.get('/lessons/:lessonsId', (req, res) => {
   LessonsModel.findById(req.params.lessonsId)
-    .populate('userId')
    .then((lessons) => {
      console.log(lessons)
         res.status(200).json(lessons)
@@ -79,7 +77,7 @@ router.patch('/lessons/:lessonsId', (req,res) => {
 
 //! router.post("/lessons/") insert/add lessons
 router.post('/create', (req, res) => {
-  const {title, description, image, userId} = req.body;
+  const {title, description, image} = req.body;
 
  if (!title || !description || !image) {
     res.status(500)
@@ -92,9 +90,8 @@ router.post('/create', (req, res) => {
     title, 
     description, 
     image,
-    userId: req.session.loggedInUser._id//! asign
-    
-  })
+    //userId: req.session.loggedInUser._id//! asign
+    })
     .then((response) => {
       res.status(200).json(response)
     })
@@ -104,22 +101,6 @@ router.post('/create', (req, res) => {
         message: err
      })
     })
-})
-
-router.get('/lessons/:userId', (req, res, next) => {
-  const { userId } = req.params;
-
-  LessonsModel.find({ userId })
-    .populate("userId")
-    .then((lessons) => {
-      res.status(200).json(lessons);
-    })
-    .catch((err) => {
-      res.status(500).json({
-        error: 'Something went wrong when finding venues owner',
-        message: err
-      })
-    });
 })
 
 router.delete('/lessons/:id', (req, res) => {
