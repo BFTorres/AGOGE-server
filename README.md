@@ -97,17 +97,13 @@ ________________________________________________________________________________
 #Links
 ________________________________________________________________________________
 
-# Linkedin
+
 
 # Trello/Kanban
 Link to your trello board or picture of your physical board
 
 # Git
 The url to your repository and to your deployed project
-
-# Client repository Link 
-
-# Server repository Link
 
 # Deploy Link
 
