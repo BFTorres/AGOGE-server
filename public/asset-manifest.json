@@ -1,30 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.5d069803.chunk.css",
-    "main.js": "/static/js/main.bd7f0d1a.chunk.js",
-    "main.js.map": "/static/js/main.bd7f0d1a.chunk.js.map",
+    "main.css": "/static/css/main.377b1b0c.chunk.css",
+    "main.js": "/static/js/main.40c5a09e.chunk.js",
+    "main.js.map": "/static/js/main.40c5a09e.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3271da1f.js",
     "runtime-main.js.map": "/static/js/runtime-main.3271da1f.js.map",
     "static/css/2.395c4cc4.chunk.css": "/static/css/2.395c4cc4.chunk.css",
-    "static/js/2.4937df66.chunk.js": "/static/js/2.4937df66.chunk.js",
-    "static/js/2.4937df66.chunk.js.map": "/static/js/2.4937df66.chunk.js.map",
+    "static/js/2.36edf2e2.chunk.js": "/static/js/2.36edf2e2.chunk.js",
+    "static/js/2.36edf2e2.chunk.js.map": "/static/js/2.36edf2e2.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.395c4cc4.chunk.css.map": "/static/css/2.395c4cc4.chunk.css.map",
-    "static/css/main.5d069803.chunk.css.map": "/static/css/main.5d069803.chunk.css.map",
-    "static/js/2.4937df66.chunk.js.LICENSE.txt": "/static/js/2.4937df66.chunk.js.LICENSE.txt",
-    "static/js/main.bd7f0d1a.chunk.js.LICENSE.txt": "/static/js/main.bd7f0d1a.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/static/media/kid.42afc7f6.jpg",
-    "static/media/aboutme.8ac071ca.jpeg": "/static/media/aboutme.8ac071ca.jpeg",
-    "static/media/logo2.106c147c.png": "/static/media/logo2.106c147c.png",
-    "static/media/index.css": "/static/media/roboto-vietnamese-400-normal.c0bec65d.woff2",
-    "static/media/travel2.0a7721c7.jpg": "/static/media/travel2.0a7721c7.jpg",
-    "static/media/travel3.41bacf58.jpg": "/static/media/travel3.41bacf58.jpg"
+    "static/css/main.377b1b0c.chunk.css.map": "/static/css/main.377b1b0c.chunk.css.map",
+    "static/js/2.36edf2e2.chunk.js.LICENSE.txt": "/static/js/2.36edf2e2.chunk.js.LICENSE.txt",
+    "static/js/main.40c5a09e.chunk.js.LICENSE.txt": "/static/js/main.40c5a09e.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/36-365828_navbar-toggle-icon-menu-hamburger-png-white.6ead3bdc.png",
+    "static/media/agoge-logo-removebg-preview.7fa27a97.png": "/static/media/agoge-logo-removebg-preview.7fa27a97.png",
+    "static/media/index.css": "/static/media/roboto-vietnamese-400-normal.c0bec65d.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.3271da1f.js",
     "static/css/2.395c4cc4.chunk.css",
-    "static/js/2.4937df66.chunk.js",
-    "static/css/main.5d069803.chunk.css",
-    "static/js/main.bd7f0d1a.chunk.js"
+    "static/js/2.36edf2e2.chunk.js",
+    "static/css/main.377b1b0c.chunk.css",
+    "static/js/main.40c5a09e.chunk.js"
   ]
 }
