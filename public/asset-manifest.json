@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.05e2d2e9.chunk.css",
-    "main.js": "/static/js/main.31c0af12.chunk.js",
-    "main.js.map": "/static/js/main.31c0af12.chunk.js.map",
+    "main.css": "/static/css/main.7a71fc23.chunk.css",
+    "main.js": "/static/js/main.a5230cf4.chunk.js",
+    "main.js.map": "/static/js/main.a5230cf4.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3271da1f.js",
     "runtime-main.js.map": "/static/js/runtime-main.3271da1f.js.map",
     "static/css/2.395c4cc4.chunk.css": "/static/css/2.395c4cc4.chunk.css",
@@ -10,9 +10,9 @@
     "static/js/2.36edf2e2.chunk.js.map": "/static/js/2.36edf2e2.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.395c4cc4.chunk.css.map": "/static/css/2.395c4cc4.chunk.css.map",
-    "static/css/main.05e2d2e9.chunk.css.map": "/static/css/main.05e2d2e9.chunk.css.map",
+    "static/css/main.7a71fc23.chunk.css.map": "/static/css/main.7a71fc23.chunk.css.map",
     "static/js/2.36edf2e2.chunk.js.LICENSE.txt": "/static/js/2.36edf2e2.chunk.js.LICENSE.txt",
-    "static/js/main.31c0af12.chunk.js.LICENSE.txt": "/static/js/main.31c0af12.chunk.js.LICENSE.txt",
+    "static/js/main.a5230cf4.chunk.js.LICENSE.txt": "/static/js/main.a5230cf4.chunk.js.LICENSE.txt",
     "static/media/App.css": "/static/media/36-365828_navbar-toggle-icon-menu-hamburger-png-white.6ead3bdc.png",
     "static/media/agoge-logo-removebg-preview.7fa27a97.png": "/static/media/agoge-logo-removebg-preview.7fa27a97.png",
     "static/media/index.css": "/static/media/roboto-vietnamese-400-normal.c0bec65d.woff2"
@@ -21,7 +21,7 @@
     "static/js/runtime-main.3271da1f.js",
     "static/css/2.395c4cc4.chunk.css",
     "static/js/2.36edf2e2.chunk.js",
-    "static/css/main.05e2d2e9.chunk.css",
-    "static/js/main.31c0af12.chunk.js"
+    "static/css/main.7a71fc23.chunk.css",
+    "static/js/main.a5230cf4.chunk.js"
   ]
 }
